@@ -1,11 +1,12 @@
 from pyexpat.errors import messages
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.views import View
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from user_app.form import RegisterForm, UserChangeForm
 from django.contrib.auth.models import User
+from django.views.generic.edit import UpdateView
 # Create your views here.
 
 class index(View):
@@ -45,20 +46,29 @@ class listUser(LoginRequiredMixin,View):
     login_url = '/login'
     
     def get(self, request):
-        data = {'list': User.objects.all()}
-        return render(request,'user_app/listuser.html', data)
+        users = {'list': User.objects.all()}
+        return render(request,'user_app/user_list.html', users)
     
-class userChange(LoginRequiredMixin,View):
+# class userChange(LoginRequiredMixin,View):
+#     login_url = '/login'
+    
+#     def get(self, request):
+#         f = UserChangeForm()
+#         return render(request,'user_app/edit_user.html', {"form": f})
+    
+#     def post(self, request, user_id):
+#         user = get_object_or_404(User, pk=user_id)
+#         form = UserChangeForm(request.POST, instance=request.user)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/user_list')
+#         return render(request,'user_app/edit_user.html',{"user": user})
+
+class EditUserView(LoginRequiredMixin,UpdateView):
     login_url = '/login'
     
-    def get(self, request):
-        f = UserChangeForm()
-        return render(request,'user_app/changeuser.html', {"form": f})
-    
-    def post(self, request):
-        form = UserChangeForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('/listuser')
-        return render(request,'user_app/changeuser.html')
+    model = User
+    form_class = UserChangeForm  
+    template_name = 'user_app/edit_user.html'
+    success_url = '/listuser/'
         
