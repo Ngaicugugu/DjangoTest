@@ -1,36 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
+{% load static %}
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
+    <link rel="stylesheet" href="{% static "user_app/fonts/icomoon/style.css" %}">
 
-<body>
-    <div class="container">
-        <nav class="nav nav-pills nav-justified">
-            <a class="nav-item nav-link active" href="/">Trang chủ</a>
-            <a class="nav-item nav-link" href="/listuser">Danh sách người dùng</a>
-            <a class="nav-item nav-link" href="/changeuser">Update danh sách</a>
-            <a class="nav-item nav-link" href="/register">Đăng ký</a>
-            <a class="nav-item nav-link" href="/login">Đăng nhập</a>
-        </nav>
-        <div style="width: 1200px ; height: 400px; background-color: aquamarine; color: black;">Đây là content</div>
-    </div>
+    <link rel="stylesheet" href="{% static "user_app/css/owl.carousel.min.css" %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static "user_app/css/bootstrap.min.css" %}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static "user_app/css/style.css" %}">
+
+    <title>Website Menu #4</title>
+  </head>
+  <body>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-</body>
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
 
+
+      <div class="top-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <a href="#" class=""><span class="mr-2  icon-envelope-open-o"></span> <span class="d-none d-md-inline-block">info@yourdomain.com</span></a>
+              <span class="mx-md-2 d-inline-block"></span>
+              <a href="#" class=""><span class="mr-2  icon-phone"></span> <span class="d-none d-md-inline-block">1+ (234) 5678 9101</span></a>
+
+
+              <div class="float-right">
+
+                <a href="#" class=""><span class="mr-2  icon-twitter"></span> <span class="d-none d-md-inline-block">Twitter</span></a>
+                <span class="mx-md-2 d-inline-block"></span>
+                <a href="#" class=""><span class="mr-2  icon-facebook"></span> <span class="d-none d-md-inline-block">Facebook</span></a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+        <div class="container">
+          <div class="row align-items-center position-relative">
+
+
+            <div class="site-logo">
+              <a href="index.html" class="text-black"><span class="text-primary">Brand</a>
+            </div>
+
+            <div class="col-12">
+              <nav class="site-navigation text-right ml-auto " role="navigation">
+                <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                  <li><a href="" class="nav-link">Home</a></li>
+                  <li><a href="{% url "user_app:listuser" %}" class="nav-link">User</a></li>
+                  <li><a href="{% url "user_app:login" %}" class="nav-link">Login</a></li>
+                  <li><a href="{% url "user_app:register" %}" class="nav-link">Register</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+        </div>
+
+      </header>
+
+    <div class="hero" style="background-image: url('static/user_app/images/hero_1.jpg');"></div>
+  
+
+
+    <script src="{% static "user_app/js/jquery-3.3.1.min.js" %}"></script>
+    <script src="{% static "user_app/js/popper.min.js" %}"></script>
+    <script src="{% static "user_app/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "user_app/js/jquery.sticky.js" %}"></script>
+    <script src="{% static "user_app/js/main.js" %}"></script>
+  </body>
 </html>
