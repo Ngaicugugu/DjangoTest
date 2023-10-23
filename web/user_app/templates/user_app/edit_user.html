@@ -1,7 +1,33 @@
-<h1>Edit User</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static "user_app/fonts/icomoon/style.css" %}">
+
+    <link rel="stylesheet" href="{% static "user_app/css/owl.carousel.min.css" %}">
+
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="{% static "user_app/css/bootstrap.min.css" %}">
+    
+     <!-- Style -->
+     <link rel="stylesheet" href="{% static "user_app/css/style.css" %}">
+</head>
+
+<body>
+<div class="shadow p-4 m-5 bg-body rounded">
+    <h1>Edit User</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Save">
+    <input type="submit" class="btn btn-primary" value="Save">
 </form>
+</div>
 <a href="{% url 'user_app:listuser' %}">Back to User List</a>
+</body>
+</html>

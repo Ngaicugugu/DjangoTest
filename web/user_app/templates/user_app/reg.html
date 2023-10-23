@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,25 +6,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    </head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static "user_app/fonts/icomoon/style.css" %}">
+
+    <link rel="stylesheet" href="{% static "user_app/css/owl.carousel.min.css" %}">
+
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="{% static "user_app/css/bootstrap.min.css" %}">
+    
+     <!-- Style -->
+     <link rel="stylesheet" href="{% static "user_app/css/style.css" %}">
+</head>
 
 <body>
-  <form method="POST" novalidate>
-    {% csrf_token %}
-    <h2>Sign Up</h2>
-      
-    {% for field in form %}
-    <p>
-      {% if field.errors %}
-      <ul class="errorlist">
-        {% for error in field.errors %}
-        <li>{{ error }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-       {{ field.label_tag }} {{ field }}
-    </p>
-    {% endfor %}
-    <input type="submit" value="Register" />
-  </form>
+  <div class="shadow p-4 m-5 bg-body rounded">
+    <form method="POST" novalidate>
+      {% csrf_token %}
+      <h2>Sign Up</h2>
+        
+      {% for field in form %} 
+      <p>
+        {% if field.errors %}
+        <ul class="errorlist">
+          {% for error in field.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+         {{ field.label_tag }}
+        </br>
+         {{ field }}
+      </p>
+      {% endfor %}
+      <input type="submit"class="btn btn-primary" value="Register" />
+    </form>
+  </div>
 </html>
